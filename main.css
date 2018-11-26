@@ -68,6 +68,10 @@ body {
   border-style: solid none none none;
 }
 
+.app .todo-container .todo.editable {
+  cursor: text;
+}
+
 .app .todo-container .todo.done .todo-text {
   text-decoration: line-through;
   color: rgb(110, 110, 110);
