@@ -1,0 +1,134 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+  background-color: rgb(247, 247, 247);
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 15px 15px;
+  box-sizing: border-box;
+}
+
+.app > *:not(:last-child) {
+  margin-bottom: 17px;
+}
+
+.app .header {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 43px;
+  font-weight: 700;
+  color: rgb(65, 65, 65);
+  text-align: center;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, .15);
+}
+
+.app .input-container {
+  border: 1px rgb(230, 230, 230) solid;
+  padding: 5px 9px;
+  background-color: rgb(248, 248, 248);
+  border-radius: 4px;
+}
+
+.app .input-container input {
+  width: 100%;
+  background-color: rgb(248, 248, 248);
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.app .input-container input:focus {
+  outline: none;
+}
+
+.app .input-container input::placeholder {
+  color: rgb(150, 150, 150);
+}
+
+.app .todo-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, .05);
+}
+
+.app .todo-container .todo {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  padding: 5px 9px;
+  background-color: rgb(247, 247, 247);
+  border-width: 1px;
+  border-color: rgb(240, 240, 240);
+  border-style: solid none none none;
+}
+
+.app .todo-container .todo.done .todo-text {
+  text-decoration: line-through;
+  color: rgb(110, 110, 110);
+}
+
+.app .todo-container .todo.editable .actions {
+  display: none;
+}
+
+.app .todo-container .todo.editable .actions.editor {
+  display: flex;
+  opacity: 1;
+}
+
+.app .todo-container .todo:not(.editable) .actions.editor {
+  display: none;
+}
+
+.app .todo-container .todo:last-child {
+  border-style: solid none none solid;
+}
+
+.app .todo-container .todo .todo-text {
+  flex-grow: 1;
+}
+
+.app .todo-container .todo .todo-text[contenteditable]:focus {
+  outline: none;
+}
+
+.app .todo-container .todo .actions {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.app .todo-container .todo:hover .actions {
+  opacity: 1;
+}
+
+.app .todo-container .todo .actions .action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.app .todo-container .todo .actions .action-container .action {
+  width: 20px;
+}
+
+@media screen and (min-width: 512px) {
+  body {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .app {
+    width: 650px;
+    margin: 30px auto;
+    background-color: rgb(247, 247, 247);
+    border-radius: 2px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, .1);
+  }
+}
