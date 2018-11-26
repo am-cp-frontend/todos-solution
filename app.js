@@ -138,6 +138,7 @@ function makeTodoEditable (domContext, index) {
   domContext.todoText.setAttribute('contenteditable', true)
   domContext.todo.classList.add('editable')
 
+  domContext.todo.classList.remove('done')
   domContext.todoText.focus()
 
   const editingActions = document.createElement('div')
