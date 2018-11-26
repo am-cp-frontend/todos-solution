@@ -82,6 +82,7 @@ const StateModule = {
 }
 
 const $input = document.querySelector('#input')
+const $form = document.querySelector('#form')
 const $todos = document.querySelector('.todo-container')
 
 function makeTodo (todo, index) {
@@ -180,14 +181,16 @@ function render (state) {
 
 StateModule.subscribe(render)
 
-$input.addEventListener('keypress', event => {
-  if (event.code === 'Enter' && event.target.value) {
+$form.addEventListener('submit', event => {
+  event.preventDefault()
+
+  if ($input.value) {
     StateModule.dispatch('addTodo', {
-      text: event.target.value,
+      text: $input.value,
       done: false
     })
 
-    event.target.value = ''
+    $input.value = ''
   }
 })
 
